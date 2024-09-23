@@ -1,0 +1,20 @@
+package com.krakedev;
+
+public class TestAuto {
+
+	public static void main(String[] args) {
+		Auto auto1=new Auto();
+		Auto auto2=new Auto();
+
+		auto1.marca="Mario";
+		auto1.anio=2017;
+		auto1.precio=138.25;
+
+		System.out.println("------");
+		System.out.println("marca:"+auto1.marca);
+		System.out.println("anio:"+auto1.anio);
+		System.out.println("precio:"+auto1.precio);
+
+	}
+
+}
