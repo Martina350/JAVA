@@ -1,0 +1,16 @@
+package com.krakedev;
+
+public class Cuadrado {
+	public double lado;
+	
+	public double calcularArea(){
+		double area=lado*lado;
+		return area;
+	}
+	
+	public double calcularPerimetro(){
+		double areaTotal=lado*lado;
+		double perimetro=areaTotal*4;
+		return perimetro;
+	}
+}

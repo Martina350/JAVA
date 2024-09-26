@@ -1,0 +1,22 @@
+package com.krakedev;
+
+public class TestProducto {
+
+	public static void main(String[] args) {
+		Producto productoA=new Producto();
+		Producto productoB=new Producto();
+		Producto productoC=new Producto();
+		
+		productoA.nombre="Aspirina";
+		productoA.descripcion="Pastillas";
+		productoA.precio=14.99;
+		productoA.stockAnual=189;
+		
+		System.out.println("------");
+		System.out.println("nombre:"+productoA.nombre);
+		System.out.println("descripcion:"+productoA.descripcion);
+		System.out.println("precio:"+productoA.precio);
+		System.out.println("stockAnual:"+productoA.stockAnual);
+	}
+
+}
