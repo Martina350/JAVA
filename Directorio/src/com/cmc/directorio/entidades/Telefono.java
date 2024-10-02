@@ -22,12 +22,15 @@ public class Telefono {
 		this.numero = numero;
 		this.codigo = codigo;
 	}
+	
 	public String getOperadora() {
 		return operadora;
 	}
+
 	public void setOperadora(String operadora) {
 		this.operadora = operadora;
 	}
+
 	public String getNumero() {
 		return numero;
 	}
