@@ -19,9 +19,13 @@ public class AdminContacto {
 		}
 	}
 	
-	public void activarUsuario(Contacto contacto) {
-		if(contacto.getTelefono().isTieneWhatsapp() == true) {
-			contacto.setActivo(true);
+	public void activarUsuario(Telefono telef, Contacto c) {
+		if(telef.isTieneWhatsapp()==true) {
+			c.setActivo(true);
+		}else {
+			c.setActivo(false);
 		}
 	}
+	
+
 }

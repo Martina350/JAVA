@@ -17,6 +17,7 @@ public class Telefono {
 		System.out.println("WHATSAPP: "+tieneWhatsapp);
 	}
 	
+	
 	public Telefono(String operadora, String numero, int codigo) {
 		this.operadora = operadora;
 		this.numero = numero;
