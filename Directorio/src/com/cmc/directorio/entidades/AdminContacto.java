@@ -10,4 +10,18 @@ public class AdminContacto {
 			return null;
 		}
 	}
+	
+	public boolean compararOperadoras(Contacto c, Contacto c2) {
+		if (c.getTelefono().getOperadora() == c2.getTelefono().getOperadora()) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public void activarUsuario(Contacto contacto) {
+		if(contacto.getTelefono().isTieneWhatsapp() == true) {
+			contacto.setActivo(true);
+		}
+	}
 }
