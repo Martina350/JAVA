@@ -11,8 +11,8 @@ public class AdminContacto {
 		}
 	}
 	
-	public boolean compararOperadoras(Contacto c, Contacto c2) {
-		if (c.getTelefono().getOperadora() == c2.getTelefono().getOperadora()) {
+	public boolean compararOperadoras(Telefono telef, Telefono telf) {
+		if (telef.getOperadora() == telf.getOperadora()) {
 			return true;
 		}else{
 			return false;
