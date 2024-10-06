@@ -22,10 +22,10 @@ public class MaquinaDulces {
 	}
 	
 	public void mostrarConfiguracion() {
-		System.out.println(celda1.getCodigo());
-		System.out.println(celda2.getCodigo());
-		System.out.println(celda3.getCodigo());
-		System.out.println(celda4.getCodigo());
+		System.out.println("CELDA 1: "+celda1.getCodigo());
+		System.out.println("CELDA 2: "+celda2.getCodigo());
+		System.out.println("CELDA 3: "+celda3.getCodigo());
+		System.out.println("CELDA 4: "+celda4.getCodigo());
 	}
 	
 	public Celda buscarCelda(String codigo) {
