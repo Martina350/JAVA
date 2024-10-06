@@ -9,7 +9,7 @@ public class TestIncrementarProductos {
 		MaquinaDulces maquina=new MaquinaDulces();
 		maquina.configurarMaquina("A1", "A2", "B1", "B2");
 		
-		Producto producto=new Producto("KE34","Papitas",0.85);
+		Producto producto=new Producto("Papitas",0.85,"KE34");
 		maquina.cargarProducto(producto, "B1", 4);
 		
 		maquina.mostrarProductos();
