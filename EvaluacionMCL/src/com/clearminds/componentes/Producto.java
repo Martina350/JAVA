@@ -5,6 +5,7 @@ public class Producto {
 	private double precio;
 	private String codigo;
 	
+	
 	public double incrementarPrecio(double incremento) {
 		double resultado;
 		resultado=incremento+precio;
