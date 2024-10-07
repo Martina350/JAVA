@@ -11,6 +11,7 @@ public class MaquinaDulces {
 	
 	public MaquinaDulces() {
         celdas = new ArrayList<>();
+        productos = new ArrayList<>();
     }
 	
 	public void agregarCelda(Celda codigo) {
@@ -40,7 +41,8 @@ public class MaquinaDulces {
 	public void cargarProducto(Producto producto, String codigoCelda, int cantidad) {
 	   Celda celdaRecuperada = buscarCelda(codigoCelda);
 	     if (celdaRecuperada != null) {
-	         celdaRecuperada.ingresarProducto(producto, cantidad);  
+	         celdaRecuperada.ingresarProducto(producto, cantidad); 
+	         productos.add(producto);
 	     } else {
 	            System.out.println("Celda no encontrada.");
 	     }
@@ -122,5 +124,40 @@ public class MaquinaDulces {
 	        }
 	 }
 	 
+	 public double venderConCambio(String codigoCelda, double valorIngresado) {
+		    Celda celda= buscarCelda(codigoCelda);
+		    if (celda==null) {
+		        return 0.0; 
+		    }
+		    Producto producto= celda.getProducto();
+		    
+		    if (producto==null) {
+		        return 0.0; 
+		    }
+		    if (celda.getStock()<=0) {
+		        return 0.0; 
+		    }
+		    double precioProducto= producto.getPrecio();
+
+		    if (valorIngresado<precioProducto) {
+		        return 0.0; 
+		    }
+		    double cambio = valorIngresado - precioProducto;
+		    celda.setStock(celda.getStock() - 1);
+		    saldo += precioProducto;
+		    return cambio;
+		}
 	
+	 private ArrayList<Producto> productos;
+	 public ArrayList<Producto> buscarMenores(double limite){
+			ArrayList<Producto> menores=new ArrayList<Producto>();
+			Producto elementoProducto=null;
+			for (int i=0;i<productos.size();i++) {
+				elementoProducto=productos.get(i);
+				if(elementoProducto.getPrecio()<limite) {
+					menores.add(elementoProducto);
+				}
+			}
+			return menores;
+		}
 }
