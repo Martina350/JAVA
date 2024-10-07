@@ -3,6 +3,7 @@ package com.clearminds.maquina;
 import java.util.ArrayList;
 
 import com.clearminds.componentes.Celda;
+import com.clearminds.componentes.Producto;
 
 public class MaquinaDulces {
 	ArrayList<Celda> celdas;
@@ -35,4 +36,27 @@ public class MaquinaDulces {
 	    }
 	    return celdaEncontrada; 
 	}
+	
+	public void cargarProducto(Producto producto, String codigoCelda, int cantidad) {
+	   Celda celdaRecuperada = buscarCelda(codigoCelda);
+	     if (celdaRecuperada != null) {
+	         celdaRecuperada.ingresarProducto(producto, cantidad);  
+	     } else {
+	            System.out.println("Celda no encontrada.");
+	     }
+	}
+	
+	public void mostrarProductos() {
+	    for (Celda celda : celdas) {
+	        Producto producto = celda.getProducto();  
+	        System.out.print("Celda:" + celda.getCodigo() + " Stock:" + celda.getStock());
+
+	        if (producto != null) {
+	            System.out.println(" Producto:" + producto.getNombre() + " Precio:" + producto.getPrecio());
+	        } else {
+	            System.out.println(" Sin Producto asignado");
+	        }
+	    }
+	}
+	
 }
