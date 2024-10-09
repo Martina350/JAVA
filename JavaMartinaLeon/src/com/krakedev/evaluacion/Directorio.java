@@ -14,16 +14,21 @@ public class Directorio {
 
     public boolean agregarContacto(Contacto contacto) {
         if (contacto != null) {
-            contactos.add(contacto);
-            fechaModificacion = new Date(); 
-            return true;
+        	 if (buscarPorCedula(contacto.getCedula()) == null) {
+        		 contactos.add(contacto);
+        		 fechaModificacion = new Date(); 
+        		 return true; 
+        	 }else {
+        		 return false;
+        	 }   
         }
         return false; 
     }
 
     public Contacto buscarPorCedula(String cedula) {
-        for (Contacto contacto : contactos) {
-            if (contacto.getCedula().equals(cedula)) {
+        for (int i = 0; i < contactos.size(); i++) {
+        	  Contacto contacto = contactos.get(i);
+        	if (contacto.getCedula().equals(cedula)) {
                 return contacto; 
             }
         }
