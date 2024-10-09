@@ -7,15 +7,11 @@ public class Contacto {
 	private Direccion direccion;
 	
 	public void imprimir() {
-        System.out.println("Cédula: " + cedula);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Dirección:");
+        System.out.println("***"+ nombre +" "+apellido+"***");
         if (direccion != null) {
-            System.out.println("   Calle Principal: " + direccion.getCallePrincipal());
-            System.out.println("   Calle Secundaria: " + direccion.getCalleSecundaria());
+            System.out.println("Dirección: " + direccion.getCallePrincipal()+ " y " + direccion.getCalleSecundaria());
         } else {
-            System.out.println("Dirección no asignada");
+            System.out.println("No tiene asociada una direccion");
         }
     }
 	
