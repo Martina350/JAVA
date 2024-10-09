@@ -31,6 +31,17 @@ public class Contacto {
             }
         }
     }
+
+	public ArrayList<Telefono> recuperarIncorrectos() {
+        ArrayList<Telefono> telefonosIncorrectos = new ArrayList<>();
+        for (int i = 0; i < telefonos.size(); i++) {
+            Telefono telefono = telefonos.get(i);
+            if ("E".equals(telefono.getEstado())) {
+                telefonosIncorrectos.add(telefono);
+            }
+        }
+        return telefonosIncorrectos;
+    }
 	
 	public Contacto(String cedula, String nombre, String apellido) {
 		this.cedula = cedula;
