@@ -9,6 +9,20 @@ public class Contacto {
 	private Direccion direccion;
 	private ArrayList<Telefono> telefonos;
 	
+	public void imprimir2() {
+        System.out.println("Información del Contacto:");
+        System.out.println("Cédula: " + cedula);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Dirección:");
+        if (direccion != null) {
+            System.out.println("  Calle Principal: " + direccion.getCallePrincipal());
+            System.out.println("  Calle Secundaria: " + direccion.getCalleSecundaria());
+        } else {
+            System.out.println("  Dirección no asignada");
+        }
+    }
+	
 	public void imprimir() {
         System.out.println("***"+ nombre +" "+apellido+"***");
         if (direccion != null) {
