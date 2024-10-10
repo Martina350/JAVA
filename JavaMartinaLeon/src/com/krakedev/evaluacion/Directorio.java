@@ -7,10 +7,14 @@ import java.util.Date;
 public class Directorio {
 	private ArrayList<Contacto> contactos;
     private Date fechaModificacion;
+    private ArrayList<Contacto> correctos;
+    private ArrayList<Contacto> incorrectos;
     
     public Directorio() {
         this.contactos = new ArrayList<>();
         this.fechaModificacion = new Date(); 
+        this.correctos = new ArrayList<>();
+        this.incorrectos = new ArrayList<>();
     }
 
     public boolean agregarContacto(Contacto contacto) {
@@ -67,6 +71,17 @@ public class Directorio {
         return count;
     }
     
+    public void depurar() {
+        for (Contacto contacto : contactos) {
+            if (contacto.getDireccion() != null) {
+                correctos.add(contacto);
+            } else {
+                incorrectos.add(contacto);
+            }
+        }
+        contactos.clear();
+    }
+    
     public ArrayList<Contacto> getContactos() {
         return contactos;
     }
@@ -74,4 +89,21 @@ public class Directorio {
     public Date getFechaModificacion() {
         return fechaModificacion;
     }
+
+	public ArrayList<Contacto> getCorrectos() {
+		return correctos;
+	}
+
+	public void setCorrectos(ArrayList<Contacto> correctos) {
+		this.correctos = correctos;
+	}
+
+	public ArrayList<Contacto> getIncorrectos() {
+		return incorrectos;
+	}
+
+	public void setIncorrectos(ArrayList<Contacto> incorrectos) {
+		this.incorrectos = incorrectos;
+	}
+    
 }
