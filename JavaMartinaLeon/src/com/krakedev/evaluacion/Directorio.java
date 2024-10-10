@@ -41,6 +41,16 @@ public class Directorio {
         return sdf.format(fechaModificacion);
     }
     
+    public int contarPerdidos() {
+        int perdidos = 0;
+        for (int i = 0; i < contactos.size(); i++) {
+            Contacto contacto = contactos.get(i);
+            if (contacto.getDireccion() == null) {
+                perdidos++;
+            }
+        }
+        return perdidos;
+    }
     
     public ArrayList<Contacto> getContactos() {
         return contactos;
