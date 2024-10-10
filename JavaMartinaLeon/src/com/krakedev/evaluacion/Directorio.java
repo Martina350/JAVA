@@ -1,5 +1,6 @@
 package com.krakedev.evaluacion;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,7 +35,13 @@ public class Directorio {
         }
         return null; 
     }
-
+    
+    public String consultarUltimaModificacion() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return sdf.format(fechaModificacion);
+    }
+    
+    
     public ArrayList<Contacto> getContactos() {
         return contactos;
     }
