@@ -87,4 +87,13 @@ public class Contacto {
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
+
+	public ArrayList<Telefono> getTelefonos() {
+		return telefonos;
+	}
+
+	public void setTelefonos(ArrayList<Telefono> telefonos) {
+		this.telefonos = telefonos;
+	}
+	
 }

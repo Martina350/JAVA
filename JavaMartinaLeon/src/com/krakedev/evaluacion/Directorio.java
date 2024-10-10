@@ -52,6 +52,21 @@ public class Directorio {
         return perdidos;
     }
     
+    public int contarFijos() {
+        int count = 0; 
+        for (int i = 0; i < contactos.size(); i++) {
+            Contacto contacto = contactos.get(i);
+            ArrayList<Telefono> telefonos = contacto.getTelefonos();
+            for (int j = 0; j < telefonos.size(); j++) {
+                Telefono telefono = telefonos.get(j);
+                if (telefono.getTipo().equals("Convencional") && telefono.getEstado().equals("C")) {
+                    count++; 
+                }
+            }
+        }
+        return count;
+    }
+    
     public ArrayList<Contacto> getContactos() {
         return contactos;
     }
