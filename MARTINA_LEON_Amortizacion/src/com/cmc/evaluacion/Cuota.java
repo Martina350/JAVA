@@ -70,7 +70,7 @@ public class Cuota {
 		this.inicio = inicio;
 	}
 
-	public void mostrarPrestamo() {
+	public void mostrarCuota() {
         System.out.printf("%d | %.2f | %.2f | %.2f | %.2f | %.2f%n", 
                           numero, 
                           Utilitarios.redondear(cuota), 

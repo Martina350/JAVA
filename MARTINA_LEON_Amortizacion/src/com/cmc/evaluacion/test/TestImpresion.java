@@ -12,6 +12,6 @@ public class TestImpresion {
 	cuota.setAbonoCapital(394.24134);
 	cuota.setSaldo(4605.76);
 	
-	cuota.mostrarPrestamo();
+	cuota.mostrarCuota();
 	}
 }

@@ -47,7 +47,7 @@ public class CalcularAmortizacion {
 	        System.out.printf("Numero | Cuota | Inicio | Interés | Abono Capital | Saldo%n");
 	        for (int i = 0; i < prestamo.getCuotas().size(); i++) {
 	        	Cuota cuota = prestamo.getCuotas().get(i); 
-	            cuota.mostrarPrestamo();  
+	            cuota.mostrarCuota();  
 	        }
 	 }
 }

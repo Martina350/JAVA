@@ -1,18 +1,19 @@
 package com.cmc.evaluacion;
 
+import com.cmc.evaluacion.Cliente;
+import com.cmc.evaluacion.Cuota;
 import java.util.ArrayList;
 
 public class Prestamo {
 	private double monto;
 	private double interes;
 	private int plazo;
-    private ArrayList<Cuota> cuotas;
+    private ArrayList<Cuota> cuotas= new ArrayList<>();
 	
 	public Prestamo(double monto, double interes, int plazo) {
 		this.monto = monto;
 		this.interes = interes;
 		this.plazo = plazo;
-		this.cuotas = new ArrayList<>();
 	}
 
 	public double getMonto() {
@@ -40,6 +41,13 @@ public class Prestamo {
 	}
 	
 	public ArrayList<Cuota> getCuotas() {
-        return cuotas; 
+        return  (ArrayList<Cuota>) cuotas; 
     }
+	
+	public void setCuotas(ArrayList<Cuota> cuotas) {
+		this.cuotas = cuotas;
+	}
+	public void mostrarPrestamo() {
+		System.out.println("[ " + "monto= " + getMonto() + ", interes=" + getInteres() + ", plazo=" + getPlazo() + "]");
+	}
 }
