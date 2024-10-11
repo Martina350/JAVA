@@ -5,7 +5,8 @@ import com.entidades.Random;
 public class TestRandom {
 
 	public static void main(String[] args) {
-		int posicion = Random.obtenerPosicion();
+		 int maxPosicion = 48;
+		int posicion = Random.obtenerPosicion(maxPosicion);
 		System.out.println("Posicion obtenida : "+ posicion);
 		 if (posicion == 0 || posicion == 1) {
 	            System.out.println("El método obtenerPosicion ha arrojado 0 o 1.");

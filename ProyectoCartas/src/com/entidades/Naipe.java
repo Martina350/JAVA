@@ -27,8 +27,9 @@ public class Naipe {
 	
 	public ArrayList<Carta> barajar() {
 		ArrayList<Carta> auxiliar = new ArrayList<>();
+		int cartasSize = cartas.size();
 		for (int i = 1; i <= 100; i++) {
-			int valorRandom = Random.obtenerPosicion();
+			int valorRandom = Random.obtenerPosicion(cartasSize);
 			if (cartas.get(valorRandom).getEstado().equals("N")) {
 				auxiliar.add(cartas.get(valorRandom));
 				cartas.get(valorRandom).setEstado("C");
