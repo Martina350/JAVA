@@ -1,6 +1,6 @@
 package com.clearminds.test;
 
-import com.clearminds.componentes.Producto;
+import com.clearminds.maquina.componentes.Producto;
 
 public class TestProducto {
 	public static void main(String[] args) {

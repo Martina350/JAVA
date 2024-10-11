@@ -1,4 +1,4 @@
-package com.clearminds.componentes;
+package com.clearminds.maquina.componentes;
 
 public class Celda {
 	private Producto producto;

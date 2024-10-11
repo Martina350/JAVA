@@ -1,6 +1,6 @@
 package com.clearminds.test;
 
-import com.clearminds.componentes.Celda;
+import com.clearminds.maquina.componentes.Celda;
 import com.clearminds.maquina.MaquinaDulces;
 
 public class TestMaquinaDulces {

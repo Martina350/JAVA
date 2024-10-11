@@ -4,8 +4,8 @@ import com.clearminds.maquina.MaquinaDulces;
 
 import java.util.ArrayList;
 
-import com.clearminds.componentes.Celda;
-import com.clearminds.componentes.Producto;
+import com.clearminds.maquina.componentes.Celda;
+import com.clearminds.maquina.componentes.Producto;
 
 
 public class TestBuscarMenores {
