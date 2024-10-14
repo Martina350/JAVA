@@ -1,4 +1,4 @@
-package com.krakedev.ejercicios;
+package com.krakedev.ejemploMaven;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
