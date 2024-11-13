@@ -8,6 +8,11 @@ public class TipoDocumento {
 	public String toString() {
 		return "TipoDocumento [codigo=" + codigo + ", descripcion=" + descripcion + "]";
 	}
+	
+	public TipoDocumento() {
+		super();
+	}
+
 	public TipoDocumento(String codigo, String descripcion) {
 		super();
 		this.codigo = codigo;
