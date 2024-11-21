@@ -72,4 +72,40 @@ public class ProveedoresBDD {
 		}
 	}
 
+	public ArrayList<Proveedor> buscarPorIdentificador(String identificacion) throws KrakeDevException, SQLException {
+		ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Proveedor proveedor = null;
+		try {
+			con = ConexionBDD.obtenerConexion();
+			ps = con.prepareStatement("select prov.identificacion, prov.tipo_documento,td.descripcion, prov.nombre, prov.telefono, prov.correo, prov.direccion "
+							+ "from proveedor prov, tipo_documento td " + "where prov.tipo_documento = td.codigo "
+							+ "and identificacion like ? ");
+			ps.setString(1, "%" + identificacion.toUpperCase() + "%");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String identificador = rs.getString("identificacion");
+				String codigoTipDoc = rs.getString("tipo_documento");
+				String descripcionTD = rs.getString("descripcion");
+				String nombre = rs.getString("nombre");
+				String telefono = rs.getString("telefono");
+				String correo = rs.getString("correo");
+				String direccion = rs.getString("direccion");
+				TipoDocumento td = new TipoDocumento(codigoTipDoc, descripcionTD);
+				proveedor = new Proveedor(identificador, td, nombre, telefono, correo, direccion);
+				proveedores.add(proveedor);
+			}
+
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			throw e;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new KrakeDevException("ERROR AL BUSCAR POR IDENTIFICADOR. DETALLE: " + e.getMessage());
+		}
+		return proveedores;
+	}
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -51,4 +52,32 @@ public class ServiciosProductos {
 		}
 	}
 	
+	@Path("actualizar")
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response actualizarProducto(Producto producto) {
+	    ProductosBDD productBDD = new ProductosBDD();
+	    try {
+	        productBDD.actualizarProducto(producto);
+	        return Response.ok().build();
+	    } catch (KrakeDevException e) {
+	        e.printStackTrace();
+	        return Response.serverError().build();
+	    }
+	}
+
+	@Path("buscarPorId/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorIdentificacion(@PathParam("id") int id) {
+		ProductosBDD productBDD = new ProductosBDD();
+		ArrayList<Producto> producto = null;
+		try {
+			producto = productBDD.buscarProductoPorIdentificador(id);
+			return Response.ok(producto).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}
+	}
 }

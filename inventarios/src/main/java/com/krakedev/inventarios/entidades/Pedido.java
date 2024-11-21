@@ -16,6 +16,10 @@ public class Pedido {
 		return "Pedido [codigo=" + codigo + ", proveedor=" + proveedor + ", fecha=" + fecha + ", estado=" + estado
 				+ "]";
 	}
+	public Pedido(int codigo, Proveedor proveedor) {
+	    this.codigo = codigo;
+	    this.proveedor = proveedor;
+	}
 	public Pedido() {
 		super();
 	}

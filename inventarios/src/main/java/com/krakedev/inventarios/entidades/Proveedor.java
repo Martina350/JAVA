@@ -19,6 +19,9 @@ public class Proveedor {
 		
 	}
 	
+	public Proveedor(String identificacion) {
+	    this.identificacion = identificacion;
+	}
 	public Proveedor(String identificacion, TipoDocumento tipoDocumento, String nombre, String telefono, String correo,
 			String direccion) {
 		super();

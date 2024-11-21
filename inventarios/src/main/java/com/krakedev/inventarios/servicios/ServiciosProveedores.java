@@ -12,38 +12,37 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
 import com.krakedev.inventarios.exceptions.*;
 import com.krakedev.inventarios.bdd.ProveedoresBDD;
 import com.krakedev.inventarios.entidades.Proveedor;
 
-@Path ("proveedores")
+@Path("proveedores")
 public class ServiciosProveedores {
-	
+
 	@Path("buscar/{sub}")
-	@GET 
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscar(@PathParam("sub") String subcadena){
-			ProveedoresBDD provBDD= new ProveedoresBDD();
-			ArrayList<Proveedor> proveedores=null;
-			try {
-				proveedores = provBDD.buscar(subcadena);
-				return Response.ok(proveedores).build();
-			} catch (KrakeDevException e) {
-				e.printStackTrace();
-				return Response.serverError().build();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return Response.serverError().build();
-			}
+	public Response buscar(@PathParam("sub") String subcadena) {
+		ProveedoresBDD provBDD = new ProveedoresBDD();
+		ArrayList<Proveedor> proveedores = null;
+		try {
+			proveedores = provBDD.buscar(subcadena);
+			return Response.ok(proveedores).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
 		}
-	
+	}
+
 	@Path("crear")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response insertar(Proveedor proveedor) {
-		ProveedoresBDD provBDD= new ProveedoresBDD();
-		System.out.println(">>>>> "+proveedor);
+		ProveedoresBDD provBDD = new ProveedoresBDD();
+		System.out.println(">>>>> " + proveedor);
 		try {
 			provBDD.insertar(proveedor);
 			return Response.ok().build();
@@ -52,6 +51,23 @@ public class ServiciosProveedores {
 			return Response.serverError().build();
 		}
 	}
-	
-}
 
+	@Path("buscarPorId/{id}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorIdentificacion(@PathParam("id") String identificacion) {
+		ProveedoresBDD provBDD = new ProveedoresBDD();
+		ArrayList<Proveedor> proveedores = null;
+		try {
+			proveedores = provBDD.buscarPorIdentificador(identificacion);
+			return Response.ok(proveedores).build();
+		} catch (KrakeDevException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return Response.serverError().build();
+		}
+	}
+
+}

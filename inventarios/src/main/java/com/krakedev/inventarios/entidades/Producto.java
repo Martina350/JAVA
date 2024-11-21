@@ -17,6 +17,12 @@ public class Producto {
 				+ precioVenta + ", tieneIva=" + tieneIva + ", coste=" + coste + ", categoria=" + categoria + ", stock="
 				+ stock + "]";
 	}
+	
+	public Producto(int codigoProducto) {
+		super();
+		this.codigoProducto = codigoProducto;
+	}
+
 	public Producto() {
 		super();
 	}
