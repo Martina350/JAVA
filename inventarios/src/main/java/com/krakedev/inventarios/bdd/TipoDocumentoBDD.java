@@ -39,4 +39,30 @@ public class TipoDocumentoBDD {
 		return tipoDocumentos;
 	}
 	
+	public void insertarTipoDocumento(TipoDocumento tipoDocumento) throws KrakeDevException {
+	    Connection con = null;
+	    try {
+	        con = ConexionBDD.obtenerConexion();
+	        PreparedStatement ps = con.prepareStatement(
+	            "INSERT INTO tipo_documento (codigo, descripcion) VALUES (?, ?) ;"
+	        );
+	        ps.setString(1, tipoDocumento.getCodigo());
+	        ps.setString(2, tipoDocumento.getDescripcion());
+	        ps.executeUpdate();
+	    } catch (KrakeDevException e) {
+	        e.printStackTrace();
+	        throw e; 
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new KrakeDevException("ERROR AL INSERTAR TIPO DE DOCUMENTO. DETALLE: " + e.getMessage());
+	    } finally {
+	        if (con != null) {
+	            try {
+	                con.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	}
 }
